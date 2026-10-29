@@ -53,7 +53,15 @@ function resize(){
  // Fixed front view. On narrow displays preserve the full horizontal silhouette.
  const height=Math.max(.1375,.112/aspect),width=height*aspect;
  camera.left=-width/2;camera.right=width/2;camera.top=height/2;camera.bottom=-height/2;
- camera.position.set(0,.014,.35);camera.lookAt(0,.014,0);camera.updateProjectionMatrix();
+ const shiftUp = 60;     // Пиксели вверх. Отрицательное число — вниз.
+const shiftRight = 0;   // Пиксели вправо. Отрицательное число — влево.
+
+const cameraY = .014 - shiftUp * height / innerHeight;
+const cameraX = -shiftRight * width / innerWidth;
+
+camera.position.set(cameraX, cameraY, .35);
+camera.lookAt(cameraX, cameraY, 0);
+camera.updateProjectionMatrix();
  renderer.setSize(innerWidth,innerHeight);
  const imageAspect=2048/1216;
  background.repeat.set(Math.min(1,aspect/imageAspect),Math.min(1,imageAspect/aspect));
