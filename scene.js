@@ -53,7 +53,7 @@ function resize(){
  // Fixed front view. On narrow displays preserve the full horizontal silhouette.
  const height=Math.max(.1375,.112/aspect),width=height*aspect;
  camera.left=-width/2;camera.right=width/2;camera.top=height/2;camera.bottom=-height/2;
- const shiftUp = 100;     // Пиксели вверх. Отрицательное число — вниз.
+ const shiftUp = 60;     // Пиксели вверх. Отрицательное число — вниз.
 const shiftRight = 0;   // Пиксели вправо. Отрицательное число — влево.
 
 const cameraY = .014 - shiftUp * height / innerHeight;
